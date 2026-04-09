@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanha Medical & General Store - Jaipur</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--g1:#0a5c36;--g2:#1a8a52;--g3:#26b870;--g4:#e8f9f0;--white:#ffffff;--dark:#0d1f14;--text:#1a3326;--muted:#5a8070;--wa:#25D366;--wa-dark:#128C7E;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--text);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,138,82,0.15);padding:0 5%;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:38px;height:38px;background:var(--g1);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:22px;height:22px;fill:white;}
+.logo-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--g1);line-height:1.1;}
+.logo-sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text);font-size:14px;font-weight:500;transition:color 0.2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--g2);transform:scaleX(0);transition:transform 0.25s;}
+.nav-links a:hover{color:var(--g1);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-btn{background:var(--g1);color:white;border:none;padding:10px 22px;border-radius:25px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.nav-btn:hover{background:var(--g2);}
+.hero{min-height:100vh;background:linear-gradient(135deg,#0a5c36 0%,#1a8a52 50%,#0d7a44 100%);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;opacity:0.08;}
+.hero-bg-circle{position:absolute;border-radius:50%;border:2px solid white;}
+.c1{width:600px;height:600px;top:-200px;right:-100px;animation:spin1 20s linear infinite;}
+.c2{width:400px;height:400px;bottom:-100px;left:-100px;animation:spin1 15s linear infinite reverse;}
+.c3{width:200px;height:200px;top:30%;left:35%;animation:spin1 10s linear infinite;}
+@keyframes spin1{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.floating-pills{position:absolute;inset:0;pointer-events:none;}
+.pill{position:absolute;background:rgba(255,255,255,0.12);border-radius:20px;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:600;animation:floaty 4s ease-in-out infinite;}
+.p1{width:80px;height:28px;top:20%;right:15%;}
+.p2{width:90px;height:28px;top:60%;right:8%;animation-delay:1s;}
+.p3{width:70px;height:28px;top:35%;right:25%;animation-delay:2s;}
+.p4{width:85px;height:28px;bottom:25%;right:18%;animation-delay:0.5s;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hero-content{position:relative;z-index:2;max-width:600px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:white;padding:8px 18px;border-radius:25px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;animation:fadeUp 0.8s ease both;}
+.badge-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:0.7;}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);color:white;line-height:1.1;margin-bottom:20px;animation:fadeUp 0.8s 0.2s ease both;}
+.hero h1 span{color:#4ade80;}
+.hero-desc{font-size:17px;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:36px;animation:fadeUp 0.8s 0.4s ease both;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.8s 0.6s ease both;}
+.btn-primary{background:white;color:var(--g1);padding:14px 30px;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-wa-hero{background:var(--wa);color:white;padding:14px 30px;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-wa-hero:hover{transform:translateY(-2px);background:#20ba5a;}
+.hero-stats{display:flex;gap:32px;margin-top:48px;animation:fadeUp 0.8s 0.8s ease both;}
+.stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#4ade80;}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.7);margin-top:2px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.ticker{background:var(--g1);color:white;padding:12px 0;overflow:hidden;}
+.ticker-inner{display:flex;gap:60px;animation:ticker 20s linear infinite;white-space:nowrap;}
+.ticker-item{font-size:13px;font-weight:500;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+section{padding:80px 5%;}
+.section-tag{display:inline-block;background:var(--g4);color:var(--g1);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:16px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:var(--dark);line-height:1.2;margin-bottom:14px;}
+.section-title span{color:var(--g2);}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:560px;}
+.services{background:var(--g4);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:48px;}
+.service-card{background:white;border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;transition:all 0.3s;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--g2),var(--g3));}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(10,92,54,0.12);}
+.service-icon{width:56px;height:56px;background:var(--g4);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all 0.3s;}
+.service-card:hover .service-icon{background:var(--g1);}
+.service-icon svg{width:28px;height:28px;fill:var(--g1);transition:fill 0.3s;}
+.service-card:hover .service-icon svg{fill:white;}
+.service-card h3{font-size:17px;font-weight:700;margin-bottom:10px;color:var(--dark);}
+.service-card p{font-size:14px;color:var(--muted);line-height:1.6;}
+.doctor{background:white;}
+.doctor-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px;}
+.doctor-card{background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:24px;padding:48px 40px;color:white;}
+.doctor-avatar{width:90px;height:90px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:36px;border:3px solid rgba(255,255,255,0.3);}
+.doctor-name{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:6px;}
+.doctor-spec{font-size:14px;opacity:0.8;margin-bottom:24px;}
+.doctor-info-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.doctor-info-list li{display:flex;align-items:center;gap:12px;font-size:14px;opacity:0.9;}
+.info-icon{width:32px;height:32px;background:rgba(255,255,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.info-icon svg{width:16px;height:16px;fill:white;}
+.doctor-highlight{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:16px 20px;margin-top:20px;font-size:13px;opacity:0.85;line-height:1.6;}
+.doctor-desc{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px;}
+.doctor-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.feat-item{display:flex;align-items:center;gap:10px;font-size:14px;}
+.feat-dot{width:10px;height:10px;background:var(--g2);border-radius:50%;flex-shrink:0;}
+.products{background:var(--g4);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:48px;}
+.product-card{background:white;border-radius:16px;padding:24px 20px;text-align:center;transition:all 0.3s;}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(10,92,54,0.1);}
+.product-icon{font-size:36px;margin-bottom:12px;display:block;}
+.product-card h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.product-card p{font-size:12px;color:var(--muted);}
+.hours{background:white;}
+.hours-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;}
+.hours-card{background:var(--g4);border-radius:20px;padding:32px;}
+.hours-card h3{font-size:18px;font-weight:700;color:var(--g1);margin-bottom:20px;}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(10,92,54,0.08);font-size:14px;}
+.hours-row:last-child{border-bottom:none;}
+.hours-label{color:var(--muted);}
+.hours-val{font-weight:600;color:var(--dark);}
+.open-badge{background:#dcfce7;color:#166534;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;}
+.delivery-card{background:linear-gradient(135deg,var(--g1),#0d7a44);border-radius:20px;padding:32px;color:white;}
+.delivery-card h3{font-size:18px;font-weight:700;margin-bottom:20px;}
+.delivery-info{font-size:15px;line-height:1.8;opacity:0.9;}
+.delivery-badge{display:inline-block;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);padding:8px 16px;border-radius:20px;font-size:13px;margin-top:16px;}
+.reviews{background:var(--g4);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:48px;}
+.review-card{background:white;border-radius:16px;padding:28px 24px;transition:all 0.3s;}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(10,92,54,0.1);}
+.stars{color:#f0a500;font-size:18px;margin-bottom:14px;}
+.review-text{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.reviewer{display:flex;align-items:center;gap:10px;}
+.rev-avatar{width:36px;height:36px;border-radius:50%;background:var(--g4);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--g1);}
+.rev-name{font-size:13px;font-weight:700;color:var(--dark);}
+.rev-date{font-size:11px;color:var(--muted);}
+.contact{background:linear-gradient(135deg,var(--g1),#0d7a44);color:white;text-align:center;}
+.contact .section-title{color:white;}
+.contact .section-sub{color:rgba(255,255,255,0.8);margin:0 auto 40px;}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:900px;margin:0 auto;}
+.contact-card{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:16px;padding:28px 24px;transition:all 0.3s;}
+.contact-card:hover{background:rgba(255,255,255,0.18);transform:translateY(-3px);}
+.contact-card svg{width:28px;height:28px;fill:rgba(255,255,255,0.8);margin-bottom:12px;}
+.contact-card h4{font-size:14px;font-weight:700;margin-bottom:8px;}
+.contact-card p{font-size:13px;opacity:0.75;line-height:1.6;}
+.contact-card a{color:white;text-decoration:none;}
+footer{background:var(--dark);color:rgba(255,255,255,0.6);text-align:center;padding:24px;font-size:13px;}
+footer span{color:var(--g3);}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
+.wa-btn{width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:all 0.25s;border:none;}
+.wa-btn:hover{transform:scale(1.1);background:#20ba5a;}
+.wa-btn svg{width:30px;height:30px;fill:white;}
+.wa-pulse-ring{position:fixed;bottom:28px;right:28px;width:60px;height:60px;border-radius:50%;background:var(--wa);opacity:0.4;animation:waPulse 2s ease-out infinite;z-index:9998;pointer-events:none;}
+@keyframes waPulse{0%{transform:scale(1);opacity:0.4;}100%{transform:scale(2);opacity:0;}}
+.wa-popup{background:white;border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,0.18);width:300px;overflow:hidden;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);transform-origin:bottom right;}
+.wa-popup.hidden{transform:scale(0.8) translateY(20px);opacity:0;pointer-events:none;}
+.wa-popup.visible{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
+.wa-popup-header{background:var(--wa-dark);padding:16px 18px;display:flex;align-items:center;gap:12px;}
+.wa-avatar{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.wa-store-name{color:white;font-weight:700;font-size:14px;}
+.wa-online{color:rgba(255,255,255,0.8);font-size:11px;margin-top:2px;display:flex;align-items:center;gap:5px;}
+.wa-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;animation:pulse 2s infinite;}
+.wa-close{margin-left:auto;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);font-size:22px;line-height:1;padding:0 4px;}
+.wa-body{padding:16px 18px;background:#ece5dd;}
+.wa-bubble{background:white;border-radius:0 12px 12px 12px;padding:12px 14px;font-size:13px;color:#333;line-height:1.7;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.wa-time{font-size:10px;color:#999;text-align:right;margin-top:6px;}
+.wa-footer{padding:12px 18px 16px;background:white;}
+.wa-send{width:100%;background:var(--wa);color:white;border:none;border-radius:25px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:background 0.2s;}
+.wa-send:hover{background:#20ba5a;}
+.wa-send svg{width:18px;height:18px;fill:white;}
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.nav-links{display:none;}.doctor-inner{grid-template-columns:1fr;}.hours-inner{grid-template-columns:1fr;}.hero-stats{gap:20px;}.wa-popup{width:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg></div>
+      <div><div class="logo-text">Kanha Medical</div><div class="logo-sub">& General Store</div></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctor">Doctor</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-btn" onclick="window.open('tel:07727987862')">Call Now</button>
+  </div>
+</nav>
+<section class="hero" id="home">
+  <div class="hero-bg"><div class="hero-bg-circle c1"></div><div class="hero-bg-circle c2"></div><div class="hero-bg-circle c3"></div></div>
+  <div class="floating-pills"><div class="pill p1">Medicine</div><div class="pill p2">General</div><div class="pill p3">Delivery</div><div class="pill p4">Doctor</div></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span>Open Now - Closes 10 PM</div>
+    <h1>Your Trusted<br><span>Medical Store</span><br>in Jaipur</h1>
+    <p class="hero-desc">Kanha Medical & General Store - serving Sanganer, Vatika with quality medicines, general items & expert care. Doctor available every Sunday.</p>
+    <div class="hero-btns">
+      <a href="tel:07727987862" class="btn-primary">Call: 077279 87862</a>
+      <a href="https://wa.me/917727987862?text=Hello%20Kanha%20Medical!%20I%20need%20help." class="btn-wa-hero" target="_blank">WhatsApp Us</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">5.0</div><div class="stat-label">Google Rating</div></div>
+      <div><div class="stat-num">10+</div><div class="stat-label">Years Serving</div></div>
+      <div><div class="stat-num">24/7</div><div class="stat-label">Emergency Ready</div></div>
+    </div>
+  </div>
+</section>
+<div class="ticker"><div class="ticker-inner"><span class="ticker-item">WhatsApp: 077279 87862 &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">Fast Home Delivery Available &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">Doctor Every Sunday 10-11 AM &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">Sanganer, Vatika, Jaipur &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">5.0 Google Rating &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">WhatsApp: 077279 87862 &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">Fast Home Delivery Available &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">Doctor Every Sunday 10-11 AM &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">Sanganer, Vatika, Jaipur &nbsp;&nbsp;&nbsp;</span><span class="ticker-item">5.0 Google Rating &nbsp;&nbsp;&nbsp;</span></div></div>
+<section class="services reveal" id="services">
+  <div class="section-tag">What We Offer</div>
+  <h2 class="section-title">Our <span>Services</span></h2>
+  <p class="section-sub">From prescription medicines to home delivery - we have everything you need for your health.</p>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg></div><h3>Pharmacy</h3><p>All prescription and OTC medicines available. Trusted brands at affordable prices for your daily health needs.</p></div>
+    <div class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 3H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div><h3>Home Delivery</h3><p>Fast medicine delivery right to your doorstep. Order now, delivered before 8 PM same day.</p></div>
+    <div class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-4v8h4c1.1 0 2-.9 2-2v-7c0-4.97-4.03-9-9-9z"/></svg></div><h3>Doctor Consultation</h3><p>Dermatologist available every Sunday 10 AM to 11 AM at Monika Clinic. Skin specialist on-site.</p></div>
+    <div class="service-card reveal"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.47 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></div><h3>General Store</h3><p>Daily essentials, FMCG products, health supplements and household items - all under one roof.</p></div>
+  </div>
+</section>
+<section class="doctor reveal" id="doctor">
+  <div class="section-tag">Medical Expert</div>
+  <h2 class="section-title">Monika Clinic <span>Doctor</span></h2>
+  <div class="doctor-inner">
+    <div class="doctor-card">
+      <div class="doctor-avatar">&#128105;&#8205;&#9877;&#65039;</div>
+      <div class="doctor-name">Dermatologist</div>
+      <div class="doctor-spec">Skin & Hair Specialist - Monika Clinic</div>
+      <ul class="doctor-info-list">
+        <li><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>Available Every Sunday Only</li>
+        <li><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>Timing: 10:00 AM to 11:00 AM</li>
+        <li><div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>Near Shree Shyam Paradise, Sanganer</li>
+      </ul>
+      <div class="doctor-highlight">Speciality: Chara Rog (Skin Diseases) - Dermatology, Acne, Rashes, Infections and more.</div>
+    </div>
+    <div>
+      <p class="doctor-desc">Our in-house Monika Clinic brings expert dermatology care to your neighborhood every Sunday morning. No need to travel far for quality skin treatment.</p>
+      <p class="doctor-desc">The doctor specializes in skin diseases, hair problems, acne, allergies, and all types of skin infections.</p>
+      <div class="doctor-features">
+        <div class="feat-item"><div class="feat-dot"></div>Skin Disease Treatment</div>
+        <div class="feat-item"><div class="feat-dot"></div>Hair Problems</div>
+        <div class="feat-item"><div class="feat-dot"></div>Acne & Pimples</div>
+        <div class="feat-item"><div class="feat-dot"></div>Allergy Treatment</div>
+        <div class="feat-item"><div class="feat-dot"></div>Fungal Infections</div>
+        <div class="feat-item"><div class="feat-dot"></div>Expert Advice</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="products reveal" id="products">
+  <div class="section-tag">What We Stock</div>
+  <h2 class="section-title">Our <span>Products</span></h2>
+  <p class="section-sub">We stock a wide range of medical and general items for everyday needs.</p>
+  <div class="products-grid">
+    <div class="product-card reveal"><span class="product-icon">&#128138;</span><h4>Prescription Medicines</h4><p>All types available</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#129657;</span><h4>First Aid</h4><p>Bandages & antiseptics</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#129516;</span><h4>Skincare</h4><p>Creams, lotions & serums</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#128137;</span><h4>Injections & Drips</h4><p>On prescription</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#129514;</span><h4>Health Supplements</h4><p>Vitamins & minerals</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#127868;</span><h4>Baby Care</h4><p>Baby products & nutrition</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#128722;</span><h4>General Store</h4><p>Daily essentials</p></div>
+    <div class="product-card reveal"><span class="product-icon">&#129658;</span><h4>Medical Devices</h4><p>BP monitors, glucometers</p></div>
+  </div>
+</section>
+<section class="hours reveal" id="hours">
+  <div class="section-tag">Visit Us</div>
+  <h2 class="section-title">Store <span>Hours</span></h2>
+  <div class="hours-inner">
+    <div class="hours-card">
+      <h3>Opening Hours</h3>
+      <div class="hours-row"><span class="hours-label">Monday to Saturday</span><span class="hours-val">8:00 AM - 10:00 PM</span></div>
+      <div class="hours-row"><span class="hours-label">Sunday</span><span class="hours-val">8:00 AM - 10:00 PM</span></div>
+      <div class="hours-row"><span class="hours-label">Doctor (Sunday)</span><span class="hours-val">10:00 AM - 11:00 AM</span></div>
+      <div class="hours-row"><span class="hours-label">Status</span><span class="open-badge">Open Now</span></div>
+    </div>
+    <div class="delivery-card">
+      <h3>Delivery Info</h3>
+      <div class="delivery-info">We offer same-day home delivery for all medicines. Order before 8 PM to get medicines delivered today. Delivery available in Sanganer, Vatika and nearby areas of Jaipur.</div>
+      <div class="delivery-badge">Delivery ends at 8:00 PM daily</div>
+    </div>
+  </div>
+</section>
+<section class="reviews reveal" id="reviews">
+  <div class="section-tag">What People Say</div>
+  <h2 class="section-title">Customer <span>Reviews</span></h2>
+  <p class="section-sub">Rated 5.0 on Google by our happy customers in Sanganer & Vatika.</p>
+  <div class="reviews-grid">
+    <div class="review-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">"Best medical store in the area! Always have all medicines in stock and the staff is very helpful and friendly."</p><div class="reviewer"><div class="rev-avatar">R</div><div><div class="rev-name">Rahul Sharma</div><div class="rev-date">Local Customer</div></div></div></div>
+    <div class="review-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">"The Sunday doctor facility is amazing! A skin specialist at the local pharmacy - super convenient and affordable."</p><div class="reviewer"><div class="rev-avatar">P</div><div><div class="rev-name">Priya Joshi</div><div class="rev-date">Sanganer Resident</div></div></div></div>
+    <div class="review-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">"Home delivery is so fast! Ordered medicines at 5 PM and received them by 7 PM. Highly recommend Kanha Medical."</p><div class="reviewer"><div class="rev-avatar">S</div><div><div class="rev-name">Sunil Meena</div><div class="rev-date">Vatika Area</div></div></div></div>
+  </div>
+</section>
+<section class="contact reveal" id="contact">
+  <div class="section-tag" style="background:rgba(255,255,255,0.2);color:white;">Get In Touch</div>
+  <h2 class="section-title">Find <span style="color:#4ade80;">Us</span></h2>
+  <p class="section-sub">Call us, WhatsApp us, or visit our store anytime!</p>
+  <div class="contact-grid">
+    <div class="contact-card"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><h4>Phone</h4><p><a href="tel:07727987862">077279 87862</a></p></div>
+    <div class="contact-card"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><h4>WhatsApp</h4><p><a href="https://wa.me/917727987862?text=Hello%20Kanha%20Medical!" target="_blank">Chat on WhatsApp</a></p></div>
+    <div class="contact-card"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><h4>Address</h4><p>Near Shree Shyam Paradise, Sanganer, Vatika, Jaipur 303905</p></div>
+    <div class="contact-card"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg><h4>Hours</h4><p>Open Daily 8 AM to 10 PM<br>Doctor: Every Sunday 10-11 AM</p></div>
+  </div>
+</section>
+<footer><p>2025 <span>Kanha Medical & General Store</span> - Sanganer, Vatika, Jaipur</p></footer>
+<div class="wa-pulse-ring"></div>
+<div class="wa-float">
+  <div class="wa-popup hidden" id="waPopup">
+    <div class="wa-popup-header">
+      <div class="wa-avatar">&#128138;</div>
+      <div><div class="wa-store-name">Kanha Medical</div><div class="wa-online"><span class="wa-dot"></span> Online - Replies instantly</div></div>
+      <button class="wa-close" id="waClose">&#215;</button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        Namaste! Welcome to <strong>Kanha Medical & General Store</strong>.<br><br>
+        How can we help you today?<br><br>
+        - Medicine Order<br>
+        - Home Delivery<br>
+        - Doctor Appointment<br>
+        - Any Query
+        <div class="wa-time">Today</div>
+      </div>
+    </div>
+    <div class="wa-footer">
+      <a href="https://wa.me/917727987862?text=Hello%20Kanha%20Medical!%20I%20need%20help." target="_blank" class="wa-send">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Start Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+  <button class="wa-btn" id="waBtn">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+</div>
+<script>
+const obs=new IntersectionObserver((e)=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const waBtn=document.getElementById('waBtn');
+const waPopup=document.getElementById('waPopup');
+const waClose=document.getElementById('waClose');
+let open=false;
+setTimeout(()=>{waPopup.classList.remove('hidden');waPopup.classList.add('visible');open=true;},2500);
+waBtn.addEventListener('click',()=>{open=!open;waPopup.classList.toggle('hidden',!open);waPopup.classList.toggle('visible',open);});
+waClose.addEventListener('click',(e)=>{e.stopPropagation();waPopup.classList.add('hidden');waPopup.classList.remove('visible');open=false;});
+</script>
+</body>
+</html>
